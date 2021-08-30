@@ -1,13 +1,16 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 const port = 3001
 
-var indexRouter = require('./src/routes/index');
-var usersRouter = require('./src/routes/users');
+// db connection
+require('./src/models');
 
-var app = express();
+const indexRouter = require('./src/routes/index');
+const usersRouter = require('./src/routes/users');
+
+const app = express();
 
 app.use(logger('dev'));
 app.use(express.json());
